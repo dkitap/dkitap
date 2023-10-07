@@ -1,0 +1,167 @@
+# Site
+name: 'Dkitap.com'
+language: "tr"
+description: 'Dkitap Pazarlama Dağıtım ve Ticaret A.Ş'
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon/favicon.ico'
+baseurl: ''
+
+# Social Settings
+disqus: #'demowebsite'
+email: 'iletisim@dkitap.com'
+mailchimp-list: #'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+google_analytics: 'G-4HBNJGRG32'
+katalogurl: 'https://cdn.e-damla.com.tr/PUBLIC/Kataloglar/genc-damla/index.html'
+twitter: 'https://twitter.com/dkitapmedya'
+facebook: 'https://www.facebook.com/dkitapmedya'
+instagram: 'https://instagram.com/dkitapmedya'
+#youtube: 'https://www.youtube.com/c/'
+
+pagepreview:
+  enabled: false
+  prefix: 'https://cdn.e-damla.com.tr/damlayayinevi_ornek_sayfalar/'
+  postfix: '/index.html'
+
+include: ["_pages"]
+permalink: /:title/
+
+
+# BuyOut Ecommerce
+buyout:
+  enabled: true
+  #buyout websites:
+  damlayayinevi: true
+  hepsiburada: true
+  dnr: true
+  idefix: true
+  kitapyurdu: true
+  odatvkitap: false
+  bkmkitap: true
+  amazontr: true
+  dkitap: true
+  trendyol: true
+  gittigidiyor: true
+
+# Plugins
+plugins: 
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-figure
+  - jekyll-gist
+ 
+# Defaults
+defaults:
+
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      avatar: /assets/images/avatar.jpg
+      
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+
+  # all books
+  - scope:
+      type: "books"
+      path: "_books"
+    values:
+      layout: book
+
+  # all authors
+  - scope:
+      type: "authors"
+      path: "_authors"
+    values:
+      layout: author
+
+  # all persons
+  - scope:
+      type: "persons"
+      path: "_persons"
+    values:
+      layout: person
+
+  # all illustrators
+  - scope:
+      type: "illustrators"
+      path: "_illustrators"
+    values:
+      layout: illustrator
+
+  # all translators
+  - scope:
+      type: "translators"
+      path: "_translators"
+    values:
+      layout: translator
+  # all slides
+  - scope:
+      type: "slides"
+      path: "_slides"
+      
+# Syntax
+markdown: kramdown
+highlighter: rouge
+
+# XML feed
+feed:
+  collections:
+    books:
+      path: "/kitaplar/feed.xml"
+    authors:
+      path: "/yazarlar/feed.xml"
+    illustrators:
+      path: "/cizerler/feed.xml"
+
+# excerpt
+excerpt_separator: <!--more-->
+
+# Paginate
+paginate: 10
+#paginate_path: /page:num/
+paginate_path: "/blog/page:num/"
+
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "disabled"
+adsense-data-ad-client: "ca-pub-3412143450191416"
+adsense-data-ad-slot: "1363087678"
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "enabled"
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+collections:
+  books:
+    output: true
+    permalink: /kitaplar/:title
+    sort_by: publish-number
+  authors:
+    output: true
+    permalink: /yazarlar/:title
+  illustrators:
+    output: true
+    permalink: /cizerler/:title
+  translators:
+    output: true
+    permalink: /cevirmenler/:title
+  persons:
+    output: true
+    permalink: /sahsiyetler/:title
+  slides: 
+    output: false
+    sort_by: order
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
