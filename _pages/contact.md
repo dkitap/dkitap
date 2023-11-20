@@ -17,12 +17,12 @@ comments: false
             <div class="col-8">/ İstanbul / Türkiye</div>
         </div>
     </div>
-    <div class="list-group-item">
+    <!-- <div class="list-group-item">
         <div class="row">
             <div class="col-4 fw-bold">Telefon:</div>
-            <!-- <div class="col-8"><a href="https://wa.me/905326554827">05326554827 (WhatsApp)</a></div> -->
+            <div class="col-8"><a href="https://wa.me/905326554827">05326554827 (WhatsApp)</a></div>
         </div>
-    </div>
+    </div> -->
     <div class="list-group-item">
         <div class="row">
             <div class="col-4 fw-bold">E-posta:</div>
