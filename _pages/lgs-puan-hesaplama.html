@@ -1,0 +1,184 @@
+---
+title: "LGS Puan Hesaplama"
+layout: default
+permalink: "/lgs-puan-hesaplama"
+---
+
+<section class="content-section">
+    <div class="container">
+        <div class="row">
+            <div class="container-fluid">
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+        <h4 class="font-weight-bold spanborder"><span>{{page.title}}</span></h4>
+        <p>* LGS Puan Hesabı için, sınavdaki derslerden yaptığınız doğru ve yanlış sayılarını giriniz.</p>
+    </div>
+</div>
+<div class="row baslik">
+    <div class="col-3 text-center">
+        <b>Ders</b>
+    </div>
+    <div class="col-3 text-center">
+        <b>Doğru</b>
+    </div>
+    <div class="col-3 text-center">
+        <b>Yanlış</b>
+    </div>
+    <div class="col-3 text-center">
+        <b>Net</b>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>Türkçe</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtTRKDogru" placeholder="Doğru sayısını giriniz" tabindex="1" type="tel" value="0"
+            id="txtTRKDogru" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtTRKYanlis" placeholder="Yanlış sayısı giriniz" tabindex="2" type="tel" value="0"
+            id="txtTRKYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtTRKNet" type="tel" value="0,00" readonly="readonly" id="txtTRKNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>T.C. İnk. Tarihi</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtINKDogru" style="-wap-input-format: 'N'" placeholder="Doğru sayısını giriniz" tabindex="3"
+            type="tel" value="0" id="txtINKDogru" class="textbox2" onkeypress="sadacesayiformati(this)"
+            autocomplete="off" onblur="YirmiKontrol();">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtINKYanlis" placeholder="Yanlış sayısını giriniz" tabindex="4" type="tel" value="0"
+            id="txtINKYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtINKNet" type="tel" value="0,00" readonly="readonly" id="txtINKNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>Din Kültürü A.B.</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtDINDogru" placeholder="Doğru sayısını giriniz" tabindex="5" type="tel" value="0"
+            id="txtDINDogru" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtDINYanlis" placeholder="Yanlış sayısını giriniz" tabindex="6" type="tel" value="0"
+            id="txtDINYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtDINNet" type="tel" value="0,00" readonly="readonly" id="txtDINNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>İngilizce</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtDILDogru" placeholder="Doğru sayısını giriniz" tabindex="7" type="tel" value="0"
+            id="txtDILDogru" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtDILYanlis" placeholder="Yanlış sayısını giriniz" tabindex="8" type="tel" value="0"
+            id="txtDILYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtDILNet" type="tel" value="0,00" readonly="readonly" id="txtDILNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>Matematik</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtMATDogru" placeholder="Doğru sayısını giriniz" tabindex="9" type="tel" value="0"
+            id="txtMATDogru" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtMATYanlis" placeholder="Yanlış sayısını giriniz" tabindex="10" type="tel" value="0"
+            id="txtMATYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtMATNet" type="tel" value="0,00" readonly="readonly" id="txtMATNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>Fen Bilimleri</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtFENDogru" placeholder="Doğru sayısını giriniz" tabindex="11" type="tel" value="0"
+            id="txtFENDogru" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtFENYanlis" placeholder="Yanlış sayısını giriniz" tabindex="12" type="tel" value="0"
+            id="txtFENYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off"
+            onblur="YirmiKontrol();" style="color:Black;">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtFENNet" type="tel" value="0,00" readonly="readonly" id="txtFENNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <b>Toplam</b>
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtToplamDogru" placeholder="Toplam Doğru sayısı" type="tel" value="0" readonly="readonly"
+            id="txtToplamDogru" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtToplamYanlis" placeholder="Toplam Yanlış sayısı" type="tel" value="0" readonly="readonly"
+            id="txtToplamYanlis" class="textbox2" onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+    <div class="col-3 text-center">
+        <input name="txtToplamNet" type="tel" value="0,00" readonly="readonly" id="txtToplamNet" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-center baslik-sol">
+        <h5 style="color: #ff6c00;">Puan:</h5>
+    </div>
+    <div class="col-9">
+        <input name="txtToplamPuan" type="tel" value="0" readonly="readonly" id="txtToplamPuan" class="textbox2"
+            onkeypress="sadacesayiformati(this)" autocomplete="off">
+    </div>
+</div>
+</div>
+
+        </div>
+    </div>
+</section>
+

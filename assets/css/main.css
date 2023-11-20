@@ -10296,3 +10296,42 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 @import url("buyout.css");
+
+.baslik{
+  background-color: #d3d9ec;
+  padding: 1vh !important;
+  margin: 0.5vh !important;
+}
+
+.container-fluid .row:not(.baslik){
+  padding: 0.1vh;
+  margin: 0.1vh;
+}
+
+.textbox2 {
+  width: 100%;
+}
+
+#txtToplamPuan {
+  font-weight: bold;
+  color: #ff6c00;
+}
+
+input {
+  text-align: center;
+}
+
+.baslik-sol {
+  background-color: #d3d9ec;
+  text-align: left;
+  margin-left: 0px;
+  padding-left: 0px;
+  font-size: 12px;
+}
+
+@media(max-width:991px){
+  .footer{
+      position: relative !important;
+      padding: 1vh !important;
+  }
+}
