@@ -7,6 +7,8 @@ const katsayiMAT = 6.59;
 const katsayiFEN = 5.61;
 const dogruyanlisgoturme = 3;
 
+const kral = document.querySelector("#kral");
+
 function guncelleNet(dogruId, yanlisId, netId, toplamSoruSayisi) {
     const dogru = parseInt(document.getElementById(dogruId).value) || 0;
     const yanlis = parseInt(document.getElementById(yanlisId).value) || 0;
@@ -16,7 +18,8 @@ function guncelleNet(dogruId, yanlisId, netId, toplamSoruSayisi) {
     // Toplam soru sayısını kontrol et
     const toplamSoru = dogru + yanlis;
     if (toplamSoru > toplamSoruSayisi) {
-        alert("Toplam soru sayısı " + toplamSoruSayisi + " olmalıdır.");
+        // alert("Toplam soru sayısı " + toplamSoruSayisi + " olmalıdır.");
+        showAlert("danger", "Toplam soru sayısı " + toplamSoruSayisi + " olmalıdır.");
         document.getElementById(dogruId).value = "0";
         document.getElementById(yanlisId).value = "0";
         document.getElementById(netId).value = "0";
@@ -39,12 +42,15 @@ function hesaplaPuan() {
     const dogruFEN = document.getElementById('dogruFEN').value;
 
     if (dogruTRK == 0 || dogruINK == 0 || dogruDIN == 0 || dogruDIL == 0 || dogruMAT == 0 || dogruFEN == 0) {
-        alert("Formu Tamamen Doldurmalısınız! Lütfen Tekrar Deneyin");
+        // alert("Formu Tamamen Doldurmalısınız! Lütfen Tekrar Deneyin");
+        showAlert("danger", "Formu Tamamen Doldurmalısınız! Lütfen Tekrar Deneyin.");
         return;
     }
 
     const toplamNet = netTRK + netINK + netDIN + netDIL + netMAT + netFEN;
     const lgsPuan = taban + (netTRK * katsayiTRK) + (netINK * katsayiINK) + (netDIN * katsayiDIN) + (netDIL * katsayiDIL) + (netMAT * katsayiMAT) + (netFEN * katsayiFEN) + dogruyanlisgoturme;
+
+    showAlert("success","İşlem başarıyla tamamlandı.");
 
     document.getElementById('sonuc').innerText = "LGS Puanınız: " + lgsPuan.toFixed(2);
     document.getElementById('toplamNet').innerText = "Toplam Net: " + toplamNet.toFixed(2);
@@ -63,3 +69,37 @@ function activateInput(e) {
       input.value = '0';
     }
   }
+
+  function showAlert(type, message) {//İşlemin sonucunu gösteren uyarı kutucuğu eklenir.
+    removeAlerts();
+    const alert = document.createElement("div");
+    const closeButton = document.createElement("button");
+
+    alert.className = `alert alert-${type} alert-dismissible fade show mt-3`;
+    alert.textContent = message;
+    alert.style = "margin-bottom: -41px;";
+
+    closeButton.className = "close";
+    closeButton.type = "button";
+    closeButton.ariaLabel = "Close";
+    closeButton.setAttribute("data-dismiss", "alert");
+    closeButton.innerHTML = "<span aria-hidden='true'>&times;</span>";
+
+    kral.appendChild(alert);
+    alert.appendChild(closeButton);
+
+    setTimeout(function () {
+        alert.remove();
+    }, 5000)
+}
+
+function removeAlerts() {
+    const errorAlert = document.querySelector(".alert-danger");
+    const successAlert = document.querySelector(".alert-success");
+    if (errorAlert) {
+        errorAlert.remove();
+    }
+    if (successAlert) {
+        successAlert.remove();
+    }
+}
