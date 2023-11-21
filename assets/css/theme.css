@@ -927,41 +927,47 @@ footer {
 	bottom: 0;
 }
 
-.baslik{
-	background-color: #d3d9ec;
-	padding: 1vh !important;
-	margin: 0.5vh !important;
-  }
-  
-  .container-fluid .row:not(.baslik){
-	padding: 0.1vh;
-	margin: 0.1vh;
-  }
-  
-  .textbox2 {
-	width: 100%;
-  }
-  
-  #txtToplamPuan {
+/* Burası lgs puan hesaplama kısmı */
+
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 20px;
+}
+
+h1 {
+	color: #333;
+}
+
+label {
+	margin-right: 10px;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+button {
+	margin-top: 10px;
+}
+
+#sonuc {
+	margin-top: 20px;
+	font-size: 18px;
 	font-weight: bold;
-	color: #ff6c00;
-  }
-  
-  input {
-	text-align: center;
-  }
-  
-  .baslik-sol {
-	background-color: #d3d9ec;
-	text-align: left;
-	margin-left: 0px;
-	padding-left: 0px;
-	font-size: 12px;
-  }
-  
-  @media(max-width:991px){
-	.footer{
-		position: relative !important;
-		padding: 1vh !important;
-	}
-  }
+	color: #333;
+	float: right;
+}
+
+#toplamNet {
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	float: right;
+}
+
+.sonuc-kismi {
+	float: right;
+	display: flex;
+	justify-content: space-between;
+}
