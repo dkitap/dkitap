@@ -958,16 +958,14 @@ button {
 	float: right;
 }
 
-#toplamNet {
+/* #toplamNet {
 	margin-top: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	color: #333;
 	float: right;
-}
+} */
 
 .sonuc-kismi {
 	float: right;
-	display: flex;
-	justify-content: space-between;
 }

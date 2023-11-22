@@ -7,7 +7,7 @@ const katsayiMAT = 6.59;
 const katsayiFEN = 5.61;
 const dogruyanlisgoturme = 3;
 
-const kral = document.querySelector("#kral");
+const body = document.querySelector("body");
 
 function guncelleNet(dogruId, yanlisId, netId, toplamSoruSayisi) {
     const dogru = parseInt(document.getElementById(dogruId).value) || 0;
@@ -25,6 +25,49 @@ function guncelleNet(dogruId, yanlisId, netId, toplamSoruSayisi) {
         document.getElementById(netId).value = "0";
     }
 }
+
+function guncelleToplamDogru() {
+    const dogruTRK = parseInt(document.getElementById('dogruTRK').value) || 0;
+    const dogruINK = parseInt(document.getElementById('dogruINK').value) || 0;
+    const dogruDIN = parseInt(document.getElementById('dogruDIN').value) || 0;
+    const dogruDIL = parseInt(document.getElementById('dogruDIL').value) || 0;
+    const dogruMAT = parseInt(document.getElementById('dogruMAT').value) || 0;
+    const dogruFEN = parseInt(document.getElementById('dogruFEN').value) || 0;
+
+    const toplamDogru = dogruTRK + dogruINK + dogruDIN + dogruDIL + dogruMAT + dogruFEN;
+
+    document.getElementById('toplamDogru').value = toplamDogru;
+    // console.log(toplamDogru);
+}
+
+function guncelleToplamYanlis() {
+    const yanlisTRK = parseInt(document.getElementById('yanlisTRK').value) || 0;
+    const yanlisINK = parseInt(document.getElementById('yanlisINK').value) || 0;
+    const yanlisDIN = parseInt(document.getElementById('yanlisDIN').value) || 0;
+    const yanlisDIL = parseInt(document.getElementById('yanlisDIL').value) || 0;
+    const yanlisMAT = parseInt(document.getElementById('yanlisMAT').value) || 0;
+    const yanlisFEN = parseInt(document.getElementById('yanlisFEN').value) || 0;
+
+    const toplamYanlis = yanlisTRK + yanlisINK + yanlisDIN + yanlisDIL + yanlisMAT + yanlisFEN;
+
+    document.getElementById('toplamYanlis').value = toplamYanlis;
+    // console.log(toplamYanlis);
+}
+
+// function guncelleToplamNet() {
+//     const netTRK = parseFloat(document.getElementById('netTRK').value) || 0;
+//     const netINK = parseFloat(document.getElementById('netINK').value) || 0;
+//     const netDIN = parseFloat(document.getElementById('netDIN').value) || 0;
+//     const netDIL = parseFloat(document.getElementById('netDIL').value) || 0;
+//     const netMAT = parseFloat(document.getElementById('netMAT').value) || 0;
+//     const netFEN = parseFloat(document.getElementById('netFEN').value) || 0;
+
+//     const toplamNet = netTRK + netINK + netDIN + netDIL + netMAT + netFEN;
+
+//     document.getElementById('toplamNet').value = toplamNet.toFixed(2);
+//     console.log(toplamNet);
+// }
+
 
 function hesaplaPuan() {
     const netTRK = parseFloat(document.getElementById('netTRK').value) || 0;
@@ -47,50 +90,74 @@ function hesaplaPuan() {
         return;
     }
 
-    const toplamNet = netTRK + netINK + netDIN + netDIL + netMAT + netFEN;
     const lgsPuan = taban + (netTRK * katsayiTRK) + (netINK * katsayiINK) + (netDIN * katsayiDIN) + (netDIL * katsayiDIL) + (netMAT * katsayiMAT) + (netFEN * katsayiFEN) + dogruyanlisgoturme;
+    const toplamNet = netTRK + netINK + netDIN + netDIL + netMAT + netFEN;
 
-    showAlert("success","İşlem başarıyla tamamlandı.");
+    showAlert("success", "İşlem başarıyla tamamlandı.");
 
+    document.getElementById('toplamNet').value = toplamNet.toFixed(2);
     document.getElementById('sonuc').innerText = "LGS Puanınız: " + lgsPuan.toFixed(2);
-    document.getElementById('toplamNet').innerText = "Toplam Net: " + toplamNet.toFixed(2);
 }
 
 function activateInput(e) {
     var input = document.getElementById(e);
     if (input.value === '0') {
-      input.value = '';
+        input.value = '';
     }
-  }
+}
 
-  function deactivateInput(e) {
+function deactivateInput(e) {
     var input = document.getElementById(e);
     if (input.value === '') {
-      input.value = '0';
+        input.value = '0';
     }
-  }
+}
 
-  function showAlert(type, message) {//İşlemin sonucunu gösteren uyarı kutucuğu eklenir.
+//   function showAlert(type, message) {//İşlemin sonucunu gösteren uyarı kutucuğu eklenir.
+//     removeAlerts();
+//     const alert = document.createElement("div");
+//     const closeButton = document.createElement("button");
+
+//     alert.className = `alert alert-${type} alert-dismissible fade show mt-3`;
+//     alert.textContent = message;
+//     alert.style = "margin-bottom: -41px;";
+
+//     closeButton.className = "close";
+//     closeButton.type = "button";
+//     closeButton.ariaLabel = "Close";
+//     closeButton.setAttribute("data-dismiss", "alert");
+//     closeButton.innerHTML = "<span aria-hidden='true'>&times;</span>";
+
+//     kral.appendChild(alert);
+//     alert.appendChild(closeButton);
+
+//     setTimeout(function () {
+//         alert.remove();
+//     }, 3000)
+// }
+
+function showAlert(type, message) {//İşlemin sonucunu gösteren uyarı kutucuğu eklenir.
     removeAlerts();
     const alert = document.createElement("div");
     const closeButton = document.createElement("button");
 
-    alert.className = `alert alert-${type} alert-dismissible fade show mt-3`;
+    alert.className = `alert alert-${type}`;
     alert.textContent = message;
-    alert.style = "margin-bottom: -41px;";
+    alert.style = "position: fixed; right: 5px; top: 15px; z-index: 9999; max-width: 387px;"
 
     closeButton.className = "close";
     closeButton.type = "button";
     closeButton.ariaLabel = "Close";
     closeButton.setAttribute("data-dismiss", "alert");
-    closeButton.innerHTML = "<span aria-hidden='true'>&times;</span>";
+    closeButton.setAttribute("aria-hidden", "true");
+    closeButton.innerHTML = "×";
 
-    kral.appendChild(alert);
+    body.appendChild(alert);
     alert.appendChild(closeButton);
 
     setTimeout(function () {
         alert.remove();
-    }, 5000)
+    }, 3000)
 }
 
 function removeAlerts() {

@@ -194,16 +194,16 @@ permalink: "/lgs-puan-hesaplama"
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruTRK">Türkçe Doğru Sayısı:</label>
                 <input type="number" class="form-control" id="dogruTRK" min="0" value="0"
-                    oninput="guncelleNet('dogruTRK', 'yanlisTRK', 'netTRK', 20)" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruTRK')" onblur="deactivateInput('dogruTRK')">
+                    oninput="guncelleNet('dogruTRK', 'yanlisTRK', 'netTRK', 20); guncelleToplamDogru();" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruTRK')" onblur="deactivateInput('dogruTRK')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="yanlisTRK">Yanlış Sayısı:</label>
                 <input type="number" class="form-control" id="yanlisTRK" min="0" value="0"
-                    oninput="guncelleNet('dogruTRK', 'yanlisTRK', 'netTRK', 20)" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisTRK')" onblur="deactivateInput('yanlisTRK')">
+                    oninput="guncelleNet('dogruTRK', 'yanlisTRK', 'netTRK', 20); guncelleToplamYanlis()" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisTRK')" onblur="deactivateInput('yanlisTRK')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="netTRK">Net:</label>
-                <input type="text" class="form-control"  id="netTRK" value="0" readonly>
+                <input type="text" class="form-control"  id="netTRK" value="0" readonly oninput="guncelleToplamNet();">
             </div>
         </div>
 
@@ -211,16 +211,16 @@ permalink: "/lgs-puan-hesaplama"
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruINK">İnkılap Doğru Sayısı:</label>
                 <input type="number" class="form-control" id="dogruINK" min="0" value="0"
-                    oninput="guncelleNet('dogruINK', 'yanlisINK', 'netINK', 10)" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruINK')" onblur="deactivateInput('dogruINK')">
+                    oninput="guncelleNet('dogruINK', 'yanlisINK', 'netINK', 10); guncelleToplamDogru();" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruINK')" onblur="deactivateInput('dogruINK')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="yanlisINK">Yanlış Sayısı:</label>
                 <input type="number" class="form-control" id="yanlisINK" min="0" value="0"
-                    oninput="guncelleNet('dogruINK', 'yanlisINK', 'netINK', 10)" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisINK')" onblur="deactivateInput('yanlisINK')">
+                    oninput="guncelleNet('dogruINK', 'yanlisINK', 'netINK', 10); guncelleToplamYanlis()" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisINK')" onblur="deactivateInput('yanlisINK')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="netINK">Net:</label>
-                <input type="text" class="form-control" id="netINK" value="0" readonly>
+                <input type="text" class="form-control" id="netINK" value="0" readonly oninput="guncelleToplamNet();">
             </div>
         </div>
 
@@ -228,16 +228,16 @@ permalink: "/lgs-puan-hesaplama"
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruDIN">Din Kültürü Doğru Sayısı:</label>
                 <input type="number" class="form-control" id="dogruDIN" min="0" value="0"
-                    oninput="guncelleNet('dogruDIN', 'yanlisDIN', 'netDIN', 10)" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruDIN')" onblur="deactivateInput('dogruDIN')">
+                    oninput="guncelleNet('dogruDIN', 'yanlisDIN', 'netDIN', 10); guncelleToplamDogru();" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruDIN')" onblur="deactivateInput('dogruDIN')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="yanlisDIN">Yanlış Sayısı:</label>
                 <input type="number" class="form-control" id="yanlisDIN" min="0" value="0"
-                    oninput="guncelleNet('dogruDIN', 'yanlisDIN', 'netDIN', 10)" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisDIN')" onblur="deactivateInput('yanlisDIN')">
+                    oninput="guncelleNet('dogruDIN', 'yanlisDIN', 'netDIN', 10); guncelleToplamYanlis()" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisDIN')" onblur="deactivateInput('yanlisDIN')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="netDIN">Net:</label>
-                <input type="text" class="form-control" id="netDIN" value="0" readonly>
+                <input type="text" class="form-control" id="netDIN" value="0" readonly oninput="guncelleToplamNet();">
             </div>
         </div>
 
@@ -245,16 +245,16 @@ permalink: "/lgs-puan-hesaplama"
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruDIL">Yabancı Dil Doğru Sayısı:</label>
                 <input type="number" class="form-control" id="dogruDIL" min="0" value="0"
-                    oninput="guncelleNet('dogruDIL', 'yanlisDIL', 'netDIL', 10)" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruDIL')" onblur="deactivateInput('dogruDIL')">
+                    oninput="guncelleNet('dogruDIL', 'yanlisDIL', 'netDIL', 10); guncelleToplamDogru();" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruDIL')" onblur="deactivateInput('dogruDIL')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="yanlisDIL">Yanlış Sayısı:</label>
                 <input type="number" class="form-control" id="yanlisDIL" min="0" value="0"
-                    oninput="guncelleNet('dogruDIL', 'yanlisDIL', 'netDIL', 10)" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisDIL')" onblur="deactivateInput('yanlisDIL')">
+                    oninput="guncelleNet('dogruDIL', 'yanlisDIL', 'netDIL', 10); guncelleToplamYanlis()" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisDIL')" onblur="deactivateInput('yanlisDIL')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="netDIL">Net:</label>
-                <input type="text" class="form-control" id="netDIL" value="0" readonly>
+                <input type="text" class="form-control" id="netDIL" value="0" readonly oninput="guncelleToplamNet();">
             </div>
         </div>
 
@@ -262,16 +262,16 @@ permalink: "/lgs-puan-hesaplama"
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruMAT">Matematik Doğru Sayısı:</label>
                 <input type="number" class="form-control" id="dogruMAT" min="0" value="0"
-                    oninput="guncelleNet('dogruMAT', 'yanlisMAT', 'netMAT', 20)" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruMAT')" onblur="deactivateInput('dogruMAT')">
+                    oninput="guncelleNet('dogruMAT', 'yanlisMAT', 'netMAT', 20); guncelleToplamDogru();" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruMAT')" onblur="deactivateInput('dogruMAT')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="yanlisMAT">Yanlış Sayısı:</label>
                 <input type="number" class="form-control" id="yanlisMAT" min="0" value="0"
-                    oninput="guncelleNet('dogruMAT', 'yanlisMAT', 'netMAT', 20)" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisMAT')" onblur="deactivateInput('yanlisMAT')">
+                    oninput="guncelleNet('dogruMAT', 'yanlisMAT', 'netMAT', 20); guncelleToplamYanlis()" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisMAT')" onblur="deactivateInput('yanlisMAT')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="netMAT">Net:</label>
-                <input type="text" class="form-control" id="netMAT" value="0" readonly>
+                <input type="text" class="form-control" id="netMAT" value="0" readonly oninput="guncelleToplamNet();">
             </div>
         </div>
 
@@ -279,16 +279,31 @@ permalink: "/lgs-puan-hesaplama"
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruFEN">Fen Bilimleri Doğru Sayısı:</label>
                 <input type="number" class="form-control" id="dogruFEN" min="0" value="0"
-                    oninput="guncelleNet('dogruFEN', 'yanlisFEN', 'netFEN', 20)" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruFEN')" onblur="deactivateInput('dogruFEN')">
+                    oninput="guncelleNet('dogruFEN', 'yanlisFEN', 'netFEN', 20); guncelleToplamDogru();" placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruFEN')" onblur="deactivateInput('dogruFEN')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="yanlisFEN">Yanlış Sayısı:</label>
                 <input type="number" class="form-control" id="yanlisFEN" min="0" value="0"
-                    oninput="guncelleNet('dogruFEN', 'yanlisFEN', 'netFEN', 20)" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisFEN')" onblur="deactivateInput('yanlisFEN')">
+                    oninput="guncelleNet('dogruFEN', 'yanlisFEN', 'netFEN', 20); guncelleToplamYanlis()" placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisFEN')" onblur="deactivateInput('yanlisFEN')">
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="netFEN">Net:</label>
-                <input type="text" class="form-control" id="netFEN" value="0" readonly>
+                <input type="text" class="form-control" id="netFEN" value="0" readonly oninput="guncelleToplamNet();">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                <label for="netFEN">Toplam Doğru Sayısı:</label>
+                <input type="text"  class="form-control" id="toplamDogru" value="0" readonly>
+            </div>
+            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                <label for="netFEN">Toplam Yanlış Sayısı:</label>
+                <input type="text" class="form-control" id="toplamYanlis" value="0" readonly>
+            </div>
+            <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                <label for="netFEN">Toplam Net Sayısı:</label>
+                <input type="text" class="form-control" id="toplamNet" value="0" readonly>
             </div>
         </div>
 
@@ -296,12 +311,23 @@ permalink: "/lgs-puan-hesaplama"
 
         <div class="sonuc-kismi col-5">
             <p id="sonuc"></p>
-            <p id="toplamNet"></p>
         </div>
-        <div id="kral"></div>
     </div>
+
+    <script>
+        
+    </script>
     <script src="assets/js/app.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
