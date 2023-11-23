@@ -86,6 +86,7 @@ function hesaplaPuan() {
 
     if (dogruTRK == 0 || dogruINK == 0 || dogruDIN == 0 || dogruDIL == 0 || dogruMAT == 0 || dogruFEN == 0) {
         // alert("Formu Tamamen Doldurmalısınız! Lütfen Tekrar Deneyin");
+        // showAlert("Formu Tamamen Doldurmalısınız! Lütfen Tekrar Deneyin.", "danger");
         showAlert("danger", "Formu Tamamen Doldurmalısınız! Lütfen Tekrar Deneyin.");
         return;
     }
@@ -93,6 +94,7 @@ function hesaplaPuan() {
     const lgsPuan = taban + (netTRK * katsayiTRK) + (netINK * katsayiINK) + (netDIN * katsayiDIN) + (netDIL * katsayiDIL) + (netMAT * katsayiMAT) + (netFEN * katsayiFEN) + dogruyanlisgoturme;
     const toplamNet = netTRK + netINK + netDIN + netDIL + netMAT + netFEN;
 
+    // showAlert("İşlem Başarıyla Tamamlandı", "Okey");
     showAlert("success", "İşlem başarıyla tamamlandı.");
 
     document.getElementById('toplamNet').value = toplamNet.toFixed(2);
@@ -112,6 +114,8 @@ function deactivateInput(e) {
         input.value = '0';
     }
 }
+
+//eski alert
 
 //   function showAlert(type, message) {
 //     removeAlerts();
@@ -159,6 +163,60 @@ function showAlert(type, message) {
         alert.remove();
     }, 3000)
 }
+
+//devam edilecek modal
+
+// function showAlert(message, title){
+//     // removeAlerts();
+//     const modal = document.createElement("div");
+//     const modalDialog = document.createElement("div");
+//     const modalContent = document.createElement("div");
+//     const modalHeader = document.createElement("div");
+//     const modalTitle = document.createElement("h5");
+//     const modalBody = document.createElement("div");
+//     const modalFooter = document.createElement("div");
+//     const closeButton = document.createElement("button");
+//     const times = document.createElement("span");
+
+//     modal.className = "modal fade";
+//     modal.id = "uyariModal";
+//     modal.setAttribute("tabindex","-1");
+//     modal.setAttribute("role","dialog");
+//     modal.setAttribute("aria-labelledby","modalLabel");
+//     modal.setAttribute("aria-hidden","true");
+
+//     modalDialog.className = "modal-dialog";
+//     modalDialog.setAttribute("role","document");
+    
+//     modalContent.className = "modal-content";
+
+//     modalHeader.className = "modal-header";
+
+//     modalTitle.className = "modal-title";
+//     modalTitle.innerHTML = title;
+//     modalTitle.id = "modalLabel";
+
+//     modalBody.className = "modal-body";
+//     modalBody.innerHTML = message;
+//     modalFooter.className = "modal-footer";
+
+//     closeButton.className = "close"
+//     closeButton.setAttribute("data-dismiss","modal");
+//     closeButton.setAttribute("aria-label","Close");
+
+//     times.setAttribute("aria-hidden", "true");
+//     times.innerHTML = "&times;";
+
+//     document.body.appendChild(modal);
+//     modal.appendChild(modalDialog);
+//     modalDialog.appendChild(modalContent);
+//     modalContent.appendChild(modalHeader);
+//     modalHeader.appendChild(modalTitle);
+//     modalHeader.appendChild(closeButton);
+//     closeButton.appendChild(times);
+//     modalContent.appendChild(modalBody);
+//     modalContent.appendChild(modalFooter);
+// }
 
 function removeAlerts() {
     const errorAlert = document.querySelector(".alert-danger");
