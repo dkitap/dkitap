@@ -113,7 +113,7 @@ function deactivateInput(e) {
     }
 }
 
-//   function showAlert(type, message) {//İşlemin sonucunu gösteren uyarı kutucuğu eklenir.
+//   function showAlert(type, message) {
 //     removeAlerts();
 //     const alert = document.createElement("div");
 //     const closeButton = document.createElement("button");
@@ -136,7 +136,7 @@ function deactivateInput(e) {
 //     }, 3000)
 // }
 
-function showAlert(type, message) {//İşlemin sonucunu gösteren uyarı kutucuğu eklenir.
+function showAlert(type, message) {
     removeAlerts();
     const alert = document.createElement("div");
     const closeButton = document.createElement("button");
