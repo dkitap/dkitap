@@ -186,12 +186,10 @@ permalink: "/lgs-puan-hesaplama"
 <!-- script kodları app.js içerisindedir. -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-<body>
-    <div class="container">
-        <h4 class="font-weight-bold spanborder"><span>
-                <script>document.write(new Date().getFullYear())</script> {{page.title}}
-            </span></h4>
 
+<body>
+    <!-- responsive hatalı lgs puan hesaplama -->
+    <!-- <div class="container">
         <div class="form-row">
             <div class="form-group col-lg-4 col-md-4 col-sm-12">
                 <label for="dogruTRK">Türkçe Doğru Sayısı:</label>
@@ -333,6 +331,109 @@ permalink: "/lgs-puan-hesaplama"
             </div>
         </div>
 
+        <button class="btn btn-success" onclick="hesaplaPuan()">Puanı Hesapla</button>
+
+        <div class="sonuc-kismi col-5">
+            <p id="sonuc"></p>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <h4 class="font-weight-bold spanborder"><span>
+                <script>document.write(new Date().getFullYear())</script> {{page.title}}
+            </span></h4>
+        <div class="table-responsive">
+            <table class="table table-hover" >
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 15%;">Ders:</th>
+                    <th scope="col" style="width: 15%;">Doğru:</th>
+                    <th scope="col" style="width: 15%;">Yanlış:</th>
+                    <th scope="col" style="width: 15%;">Net:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Türkçe:</th>
+                    <td><input type="number" class="form-control" id="dogruTRK" min="0" value="0"
+                        oninput="guncelleNet('dogruTRK', 'yanlisTRK', 'netTRK', 20); guncelleToplamDogru();"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruTRK')"
+                        onblur="deactivateInput('dogruTRK')"></td>
+                    <td><input type="number" class="form-control" id="yanlisTRK" min="0" value="0"
+                        oninput="guncelleNet('dogruTRK', 'yanlisTRK', 'netTRK', 20); guncelleToplamYanlis()"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisTRK')"
+                        onblur="deactivateInput('yanlisTRK')"></td>
+                    <td><input type="text" class="form-control" id="netTRK" value="0" readonly></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">İnkılap:</th>
+                    <td><input type="number" class="form-control" id="dogruINK" min="0" value="0"
+                        oninput="guncelleNet('dogruINK', 'yanlisINK', 'netINK', 10); guncelleToplamDogru();"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruINK')"
+                        onblur="deactivateInput('dogruINK')"></td>
+                    <td><input type="number" class="form-control" id="yanlisINK" min="0" value="0"
+                        oninput="guncelleNet('dogruINK', 'yanlisINK', 'netINK', 10); guncelleToplamYanlis()"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisINK')"
+                        onblur="deactivateInput('yanlisINK')"></td>
+                    <td><input type="text" class="form-control" id="netINK" value="0" readonly></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Din Kültürü:</th>
+                    <td><input type="number" class="form-control" id="dogruDIN" min="0" value="0"
+                        oninput="guncelleNet('dogruDIN', 'yanlisDIN', 'netDIN', 10); guncelleToplamDogru();"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruDIN')"
+                        onblur="deactivateInput('dogruDIN')"></td>
+                    <td><input type="number" class="form-control" id="yanlisDIN" min="0" value="0"
+                        oninput="guncelleNet('dogruDIN', 'yanlisDIN', 'netDIN', 10); guncelleToplamYanlis()"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisDIN')"
+                        onblur="deactivateInput('yanlisDIN')"></td>
+                    <td><input type="text" class="form-control" id="netDIN" value="0" readonly></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Yabancı Dil:</th>
+                    <td><input type="number" class="form-control" id="dogruDIL" min="0" value="0"
+                        oninput="guncelleNet('dogruDIL', 'yanlisDIL', 'netDIL', 10); guncelleToplamDogru();"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruDIL')"
+                        onblur="deactivateInput('dogruDIL')"></td>
+                    <td><input type="number" class="form-control" id="yanlisDIL" min="0" value="0"
+                        oninput="guncelleNet('dogruDIL', 'yanlisDIL', 'netDIL', 10); guncelleToplamYanlis()"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisDIL')"
+                        onblur="deactivateInput('yanlisDIL')"></td>
+                    <td><input type="text" class="form-control" id="netDIL" value="0" readonly></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Matematik:</th>
+                    <td><input type="number" class="form-control" id="dogruMAT" min="0" value="0"
+                        oninput="guncelleNet('dogruMAT', 'yanlisMAT', 'netMAT', 20); guncelleToplamDogru();"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruMAT')"
+                        onblur="deactivateInput('dogruMAT')"></td>
+                    <td><input type="number" class="form-control" id="yanlisMAT" min="0" value="0"
+                        oninput="guncelleNet('dogruMAT', 'yanlisMAT', 'netMAT', 20); guncelleToplamYanlis()"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisMAT')"
+                        onblur="deactivateInput('yanlisMAT')"></td>
+                    <td><input type="text" class="form-control" id="netMAT" value="0" readonly></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Fen Bilimleri:</th>
+                    <td><input type="number" class="form-control" id="dogruFEN" min="0" value="0"
+                        oninput="guncelleNet('dogruFEN', 'yanlisFEN', 'netFEN', 20); guncelleToplamDogru();"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('dogruFEN')"
+                        onblur="deactivateInput('dogruFEN')"></td>
+                    <td><input type="number" class="form-control" id="yanlisFEN" min="0" value="0"
+                        oninput="guncelleNet('dogruFEN', 'yanlisFEN', 'netFEN', 20); guncelleToplamYanlis()"
+                        placeholder="Bir Değer Giriniz" onfocus="activateInput('yanlisFEN')"
+                        onblur="deactivateInput('yanlisFEN')"></td>
+                    <td><input type="text" class="form-control" id="netFEN" value="0" readonly></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Toplam:</th>
+                    <td><input type="text" class="form-control" id="toplamDogru" value="0" readonly></td>
+                    <td><input type="text" class="form-control" id="toplamYanlis" value="0" readonly></td>
+                    <td><input type="text" class="form-control" id="toplamNet" value="0" readonly></td>
+                  </tr>
+                </tbody>
+              </table>     
+        </div>
         <button class="btn btn-success" onclick="hesaplaPuan()">Puanı Hesapla</button>
 
         <div class="sonuc-kismi col-5">
