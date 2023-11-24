@@ -9,6 +9,7 @@ const dogruyanlisgoturme = 3;
 
 const body = document.querySelector("body");
 
+
 function guncelleNet(dogruId, yanlisId, netId, toplamSoruSayisi) {
     const dogru = parseInt(document.getElementById(dogruId).value) || 0;
     const yanlis = parseInt(document.getElementById(yanlisId).value) || 0;
@@ -53,20 +54,6 @@ function guncelleToplamYanlis() {
     document.getElementById('toplamYanlis').value = toplamYanlis;
     // console.log(toplamYanlis);
 }
-
-// function guncelleToplamNet() {
-//     const netTRK = parseFloat(document.getElementById('netTRK').value) || 0;
-//     const netINK = parseFloat(document.getElementById('netINK').value) || 0;
-//     const netDIN = parseFloat(document.getElementById('netDIN').value) || 0;
-//     const netDIL = parseFloat(document.getElementById('netDIL').value) || 0;
-//     const netMAT = parseFloat(document.getElementById('netMAT').value) || 0;
-//     const netFEN = parseFloat(document.getElementById('netFEN').value) || 0;
-
-//     const toplamNet = netTRK + netINK + netDIN + netDIL + netMAT + netFEN;
-
-//     document.getElementById('toplamNet').value = toplamNet.toFixed(2);
-//     console.log(toplamNet);
-// }
 
 
 function hesaplaPuan() {
@@ -164,6 +151,40 @@ function showAlert(type, message) {
     }, 3000)
 }
 
+
+function removeAlerts() {
+    const errorAlert = document.querySelector(".alert-danger");
+    const successAlert = document.querySelector(".alert-success");
+    if (errorAlert) {
+        errorAlert.remove();
+    }
+    if (successAlert) {
+        successAlert.remove();
+    }
+}
+
+
+// Mobil ekranda placeholder silinme kodu
+
+document.addEventListener('DOMContentLoaded',function(){
+    const input = document.querySelectorAll('input');
+
+    input.forEach(function(inputs){
+        if(window.innerWidth <= 768){
+            inputs.removeAttribute('placeholder');
+        }
+        else{
+            inputs.setAttribute('placeholder','Bir Değer Giriniz')
+        }
+    })
+});
+
+removePlaceholderOnMobile();
+
+window.addEventListener('resize', function(){
+    removePlaceholderOnMobile();
+})
+
 //devam edilecek modal
 
 // function showAlert(message, title){
@@ -217,14 +238,3 @@ function showAlert(type, message) {
 //     modalContent.appendChild(modalBody);
 //     modalContent.appendChild(modalFooter);
 // }
-
-function removeAlerts() {
-    const errorAlert = document.querySelector(".alert-danger");
-    const successAlert = document.querySelector(".alert-success");
-    if (errorAlert) {
-        errorAlert.remove();
-    }
-    if (successAlert) {
-        successAlert.remove();
-    }
-}
