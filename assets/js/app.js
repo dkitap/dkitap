@@ -134,7 +134,7 @@ function showAlert(type, message) {
 
     alert.className = `alert alert-${type}`;
     alert.textContent = message;
-    alert.style = "position: fixed; right: 5px; z-index: 9999; max-width: 387px;"
+    alert.style = "position: fixed; right: 5px; bottom: 0px; z-index: 9999; max-width: 387px;"
 
     closeButton.className = "close";
     closeButton.type = "button";
